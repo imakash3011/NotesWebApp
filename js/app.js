@@ -62,3 +62,29 @@ function deleteNote(index){
     showNotes();
     
 }
+
+let search = document.getElementById('searchTxt');
+search.addEventListener('input',function(){
+    
+    let inputVal = search.value.toLowerCase()
+    console.log("input event fired",inputVal)
+    // here we are taking each card one after another and we are trying to mathc its content
+    let noteCards = document.getElementsByClassName('noteCard')
+    Array.from(noteCards).forEach(function(element){
+             let cardTxt = element.getElementsByTagName("p")[0].innerText
+            // console.log(cardTxt)
+            if(cardTxt.includes(inputVal)){
+                element.style.display = "block";
+            }else{
+                element.style.display = "none";
+            }
+    })
+}) 
+
+
+// features
+
+// addtitle
+// mark as important
+// separate notes by user
+// sync and host with web server
